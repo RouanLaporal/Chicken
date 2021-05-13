@@ -2,7 +2,9 @@ var express = require('express');
 var router = express.Router();
 const mongoose = require('mongoose');
 const Chicken = require('../models/Chicken');
+const ChickenCtrl = require('../controllers/chicken')
 
+router.post('/run', ChickenCtrl.run);
 /* GET chicken listing. */
 router.get('/', async(req, res,next) => {
   res.json(await mongoose.model('Chicken').find({}));
